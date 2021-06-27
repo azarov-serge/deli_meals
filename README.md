@@ -1,6 +1,6 @@
-# deli_meals
+# Deli Meals
 
-A new Flutter project.
+Navigation & Multiple Screens
 
 ## Getting Started
 
