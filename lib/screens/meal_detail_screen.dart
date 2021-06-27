@@ -4,6 +4,10 @@ import 'package:deli_meals/dummy_meals.dart';
 
 class MealDetailScreen extends StatelessWidget {
   static final routeName = '/meal-detail';
+  final Function toggleFavorite;
+  final Function isFavorite;
+
+  MealDetailScreen(this.toggleFavorite, this.isFavorite);
 
   Widget buildSectionTitle(BuildContext context, String text) {
     return Container(
@@ -43,7 +47,7 @@ class MealDetailScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: <Widget>[
+          children: [
             Container(
               height: 300,
               width: double.infinity,
@@ -56,7 +60,6 @@ class MealDetailScreen extends StatelessWidget {
             buildContainer(
               ListView.builder(
                 itemBuilder: (ctx, index) => Card(
-                  color: Theme.of(context).accentColor,
                   child: Padding(
                       padding: EdgeInsets.symmetric(
                         vertical: 5,
@@ -88,6 +91,12 @@ class MealDetailScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          isFavorite(id) ? Icons.star : Icons.star_border,
+        ),
+        onPressed: () => toggleFavorite(id),
       ),
     );
   }

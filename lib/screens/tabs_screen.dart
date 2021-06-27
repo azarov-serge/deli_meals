@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 
 import 'package:deli_meals/screens/categories_screen.dart';
 import 'package:deli_meals/screens/favorites_screen.dart';
+
+import 'package:deli_meals/widgets/main_drawer.dart';
+
 import 'package:deli_meals/models/meal.dart';
 
 class TabsScreen extends StatefulWidget {
-  // final List<Meal> favoriteMeals;
+  final List<Meal> favoriteMeals;
 
-  TabsScreen();
+  TabsScreen(this.favoriteMeals);
 
   @override
   _TabsScreenState createState() => _TabsScreenState();
@@ -25,7 +28,7 @@ class _TabsScreenState extends State<TabsScreen> {
         'title': 'Categories',
       },
       {
-        'page': FavoritesScreen(),
+        'page': FavoritesScreen(widget.favoriteMeals),
         'title': 'Your Favorite',
       },
     ];
@@ -44,12 +47,13 @@ class _TabsScreenState extends State<TabsScreen> {
       appBar: AppBar(
         title: Text(_pages[_selectedPageIndex]['title']),
       ),
+      drawer: MainDrawer(),
       body: _pages[_selectedPageIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
         backgroundColor: Theme.of(context).primaryColor,
-        unselectedItemColor: Colors.white,
-        selectedItemColor: Theme.of(context).accentColor,
+        unselectedItemColor: Colors.white.withOpacity(0.65),
+        selectedItemColor: Colors.white,
         currentIndex: _selectedPageIndex,
         items: [
           BottomNavigationBarItem(
