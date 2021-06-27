@@ -1,8 +1,8 @@
 # Deli Meals
 
-##Navigation & Multiple Screens
+## Navigation & Multiple Screens
 Udemy course:
-Flutter & Dart - The Complete Guide [2021 Edition] (https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/)
+Flutter & Dart - The Complete Guide [2021 Edition](https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/)
 A Complete Guide to the Flutter SDK & Flutter Framework for building native iOS and Android apps
 
 ## Getting Started
